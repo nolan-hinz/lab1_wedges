@@ -41,7 +41,7 @@ def fix_distortion(file):
     ax[2].set_title('Windoff')
 
     plt.show()
-    accept_image = input("Accept rescaled image? Enter 0 for no, 1 for yes. ")
+    accept_image = bool(int(input("Accept rescaled image? Enter 0 for no, 1 for yes. ")))
     if accept_image == 0:
         return
     else:
