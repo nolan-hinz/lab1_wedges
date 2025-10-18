@@ -5,7 +5,7 @@ import numpy as np
 def get_conversion(n_dists:int,dist_measure:float):
     img = io.imread('Wedge grid.bmp')
     plt.imshow(img)
-    pts = plt.ginput(n_dists*2) # do it six times to get a better baseline
+    pts = plt.ginput(n_dists*2) # do it more times to get a better baseline conversion
     plt.show()
 
     photo_px = 0
@@ -17,7 +17,7 @@ def get_conversion(n_dists:int,dist_measure:float):
 def fix_distortion(file):
     img = io.imread(file)
     plt.imshow(img)
-    pts = plt.ginput(3) # do it six times to get a better baseline
+    pts = plt.ginput(3) 
 
     width = np.abs(pts[0][0] - pts[1][0])
     height = np.abs(pts[1][1] - pts[2][1])
@@ -45,7 +45,7 @@ def fix_distortion(file):
     if accept_image == 0:
         return
     else:
-        fname = str("rescaled_"+fname)
+        fname = str("rescaled_"+file)
         io.imsave(fname, rescaled_img)
 
 if __name__ == "__main__":
@@ -55,5 +55,5 @@ if __name__ == "__main__":
     ##### OF THE CURRENT IMAGE YOU ARE FIXING DISTORTION OF
     filename = "Mach 2 wedge schlieren_horizontal_0.bmp"
     ###################################################
-    
+
     fix_distortion(filename)
