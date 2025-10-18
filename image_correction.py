@@ -47,6 +47,8 @@ def fix_distortion(file):
     else:
         fname = str("rescaled_"+file)
         io.imsave(fname, (rescaled_img*255).astype('uint8'))
+	np.save( str("height_distortion_"+file), pct_h_change )
+	np.save( str("width_distortion_"+file) , pct_w_change )
 
 if __name__ == "__main__":
     mm_p_px = np.load('mm_per_px.npy')
